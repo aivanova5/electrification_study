@@ -104,6 +104,7 @@ object regulator {
 	from bulk_node;
 	to feeder_node;
 	configuration rc502;
+	sense_node main_node;
 }
 
 object regulator_configuration {
