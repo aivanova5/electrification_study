@@ -70,11 +70,14 @@ plt.figure(2)
 for i in max_real : 
 	for p in filename_perc : 
 		if p[0] in i[0] : 
-			plt.scatter(p[1], i[1])
-			plt.text(p[1],i[1]+0.5,i[2],ha='center',va='baseline',**style)
+			plt.scatter(i[2], i[1])
+			plt.text(i[2],i[1]+0.5,str(round(float(p[1])*100))+'%',ha='center',va='baseline',**style)
 tmp_1 = plt.gcf() # get current figure
+plt.gcf().autofmt_xdate()
+myFmt = md.DateFormatter('%y-%m-%d %H:%M:%S')
+plt.gca().xaxis.set_major_formatter(myFmt)
 plt.draw()
-plt.xlabel("Electrification Fraction")
+plt.xlabel("Peak time")
 plt.ylabel("Peak feeder power [kW]")
 tmp_1.savefig("output/feeder_plot/peak_power.png")
 
