@@ -52,6 +52,7 @@ for file_tuple in files_sorted :
 		plt.plot(time_stamp, real_power, label=str(tmp_label)+'% Electrification')
 		labels_list.append(str(tmp_label)+'% Electrification')
 		# plt.plot(time_stamp, reactive_power, label='reactive_'+file[:-4])
+print(max_real)
 plt.gcf().autofmt_xdate()
 myFmt = md.DateFormatter('%y-%m-%d %H:%M:%S')
 plt.gca().xaxis.set_major_formatter(myFmt)
@@ -71,7 +72,7 @@ for i in max_real :
 	for p in filename_perc : 
 		if p[0] in i[0] : 
 			plt.scatter(i[2], i[1])
-			plt.text(i[2],i[1]+0.5,str(round(float(p[1])*100))+'%',ha='center',va='baseline',**style)
+			plt.text(i[2],i[1]+0.5,str(round(float(p[1])*100))+'% ' + str(i[2])[-5:],ha='center',va='baseline',**style)
 tmp_1 = plt.gcf() # get current figure
 plt.gcf().autofmt_xdate()
 myFmt = md.DateFormatter('%y-%m-%d %H:%M:%S')
