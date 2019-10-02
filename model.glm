@@ -34,7 +34,7 @@ clock {
 #else
 #error TIMEZONE is not specified in ${CONFIGFILE}
 #endif // TIMEZONE
-
+#define RECORDINTERVAL=300
 #set randomseed=5 
 ///////////////////////////////////////////////////////
 //
@@ -62,7 +62,7 @@ module powerflow{
 module tape;
 module residential{
 	implicit_enduses REFRIGERATOR|LIGHTS|PLUGS|WATERHEATER|RANGE|DRYER|CLOTHESWASHER|FREEZER|MICROWAVE|DISHWASHER;
-	paneldump_interval 3600;
+	paneldump_interval 300;
 	paneldump_filename "paneldump/paneldump_${RUN_NAME}";
 	implicit_enduse_source EIA2015;
 }
@@ -75,7 +75,7 @@ object meter {
 	object recorder {
 		property measured_real_power[kW], measured_reactive_power[kVAr]; 
 		file "output/feeder_power/feeder_${RUN_NAME}.csv";
-		interval 1h;
+		interval ${RECORDINTERVAL};
 	};
 }
 
