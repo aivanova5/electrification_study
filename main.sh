@@ -28,6 +28,10 @@ if [ ! -d "output/output_loadshapes" ]
 then
     mkdir output/output_loadshapes
 fi
+if [ ! -d "output/house_enduse" ] 
+then
+    mkdir output/house_enduse
+fi
 if [ ! -d "elec_config/" ] 
 then
     mkdir elec_config
@@ -36,6 +40,7 @@ if [ ! -d "paneldump/" ]
 then
     mkdir paneldump
 fi
+
 python3 main.py
 for filename in model_files/*.glm; do 
 	gridlabd "$filename"

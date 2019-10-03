@@ -2,6 +2,7 @@ import csv
 import os
 import glob
 from shutil import copyfile
+import math
 
 gas_count = 0 
 elec_count = 0

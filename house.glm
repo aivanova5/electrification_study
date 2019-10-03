@@ -79,6 +79,14 @@ object triplex_meter:..${COUNT} {
 #endif //UPGRADE
 #endif // GAS no	
 	}; 
-
+#ifndef RECORDFLAG
+#define RECORDFLAG=yes
+	object recorder {
+		property measured_real_power[kW];
+		file "output/total_load_${SEQ_CUSTID}_${RUN_NAME}.csv";
+		interval ${RECORDINTERVAL};
+		in_svc ${INSERVICETIME};
+	};
+#endif
 }
 
