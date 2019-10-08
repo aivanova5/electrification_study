@@ -77,7 +77,7 @@ object meter {
 		property measured_real_power[kW], measured_reactive_power[kVAr]; 
 		file "output/feeder_power/feeder_${RUN_NAME}.csv";
 		interval ${RECORDINTERVAL};
-		in_svc ${INSERVICETIME};
+	//	in_svc ${INSERVICETIME};
 	};
 }
 
